@@ -17,10 +17,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4.1.7
-      - name: ls
-        run: |
-          chmod +x script.sh
-          ./script.sh
+      - name: LS
+        run: ls -al
+      - name: Set up Node.js
+        uses: actions/setup-node@v4.0.4
+      - name: Node version
+        run: node --version
+
+      # - name: Run script
+      #   run: |
+      #     chmod +x script.sh
+      #     ./script.sh
 
   # hola:
   #   runs-on: ubuntu-latest
