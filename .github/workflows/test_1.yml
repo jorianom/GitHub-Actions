@@ -12,6 +12,16 @@ on:
       - master
 
 jobs:
+  test-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.7
+      - name: ls
+        run: |
+          chmod +x script.sh
+          ./script.sh
+
   hola:
     runs-on: ubuntu-latest
     steps:
