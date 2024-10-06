@@ -18,7 +18,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4.1.7
       - name: My Action
-        uses: ./.github/actions/my-action
+        uses: ./.github/actions
       # - name: LS
       #   run: ls -al
       # - name: Set up Node.js
