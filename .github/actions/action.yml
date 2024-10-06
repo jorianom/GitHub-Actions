@@ -12,5 +12,5 @@ runs:
 
   steps:
     - name: "Hola mundo desde my-action"
-      run: echo 'Hola Mundo desde input: ${{ inputs.message }}'
+      run: echo "Hola Mundo desde input: ${{ inputs.message }}"
       shell: bash
