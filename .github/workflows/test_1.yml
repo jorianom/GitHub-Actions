@@ -14,24 +14,30 @@ on:
 jobs:
   test-build:
     runs-on: ubuntu-latest
-    services:
-      mysql:
-        image: mysql:5.7
-        env:
-          MYSQL_ROOT_PASSWORD: root
-        ports:
-          - 3306:3306
-      redis:
-        image: redis
-        ports:
-          - 6379:6379
+    env:
+      MY_VAR: "Hola Mundo"
+    # services:
+    #   mysql:
+    #     image: mysql:5.7
+    #     env:
+    #       MYSQL_ROOT_PASSWORD: root
+    #     ports:
+    #       - 3306:3306
+    #   redis:
+    #     image: redis
+    #     ports:
+    #       - 6379:6379
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4.1.7
-      - name: My Action
-        uses: ./.github/actions
-        with:
-          message: "John"
+      - name: Echo Vars
+        run: | 
+          echo 'Hola Variables de entorno: $MY_VAR'
+          echo 'Hola Variables GITHUB: ${{ vars.ENV_MY_VAR }}'
+      # - name: Checkout 
+      #   uses: actions/checkout@v4.1.7
+      # - name: My Action
+      #   uses: ./.github/actions
+      #   with:
+      #     message: "John"
       # - name: LS
       #   run: ls -al
       # - name: Set up Node.js
