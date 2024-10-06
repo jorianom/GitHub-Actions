@@ -1,10 +1,16 @@
 name: "My action"
 description: "My first action"
 
+inputs:
+  message:
+    description: "Message to display"
+    required: true
+    default: "Hello World"
+
 runs:
   using: "composite"
 
   steps:
     - name: "Hola mundo desde my-action"
-      run: echo 'Hola Mundo desde my-action'
-      shell: bash 
+      run: echo 'Hola Mundo desde input: ${{ inputs.message }}'
+      shell: bash
