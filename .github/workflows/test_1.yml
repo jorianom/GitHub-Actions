@@ -23,8 +23,8 @@ jobs:
           # Variables de entorno a nivel de step
           STEP_MY_VAR: "Hola Mundo"
         run: |
-          echo 'Hola Variables de entorno: $MY_VAR'
-          echo 'Hola Variables de entorno: $STEP_MY_VAR'
+          echo 'Hola Variables de entorno: ${{env.MY_VAR}}'
+          echo 'Hola Variables de entorno: ${{env.STEP_MY_VAR}}'
           echo 'Hola Variables GITHUB: ${{ vars.ENV_MY_VAR }}'
     # services:
     #   mysql:
