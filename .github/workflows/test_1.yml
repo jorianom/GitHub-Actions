@@ -29,6 +29,13 @@ jobs:
       - name: Secrets
         run: |
           echo 'Hola Secrets: ${{ secrets.MY_SECRET }}'
+      - name: Example use ssh
+        run: |
+          mkdir -p ~/.ssh 
+          echo "${{ secrets.SSH_KEY_EXAMPLE }}" >> ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          cat ~/.ssh/id_rsa
 
     # services:
     #   mysql:
