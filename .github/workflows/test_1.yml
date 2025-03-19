@@ -14,8 +14,18 @@ on:
 jobs:
   test-build:
     runs-on: ubuntu-latest
+    # Variables de entorno a nivel de job
     env:
       MY_VAR: "Hola Mundo"
+    steps:
+      - name: Echo Vars
+        env:
+          # Variables de entorno a nivel de step
+          STEP_MY_VAR: "Hola Mundo"
+        run: |
+          echo 'Hola Variables de entorno: $MY_VAR'
+          echo 'Hola Variables de entorno: $STEP_MY_VAR'
+          echo 'Hola Variables GITHUB: ${{ vars.ENV_MY_VAR }}'
     # services:
     #   mysql:
     #     image: mysql:5.7
@@ -27,28 +37,28 @@ jobs:
     #     image: redis
     #     ports:
     #       - 6379:6379
-    steps:
-      - name: Echo Vars
-        run: | 
-          echo 'Hola Variables de entorno: $MY_VAR'
-          echo 'Hola Variables GITHUB: ${{ vars.ENV_MY_VAR }}'
-      # - name: Checkout 
-      #   uses: actions/checkout@v4.1.7
-      # - name: My Action
-      #   uses: ./.github/actions
-      #   with:
-      #     message: "John"
-      # - name: LS
-      #   run: ls -al
-      # - name: Set up Node.js
-      #   uses: actions/setup-node@v4.0.4
-      # - name: Node version
-      #   run: node --version
+    # steps:
+    #   - name: Echo Vars
+    #     run: |
+    #       echo 'Hola Variables de entorno: $MY_VAR'
+    #       echo 'Hola Variables GITHUB: ${{ vars.ENV_MY_VAR }}'
+    # - name: Checkout
+    #   uses: actions/checkout@v4.1.7
+    # - name: My Action
+    #   uses: ./.github/actions
+    #   with:
+    #     message: "John"
+    # - name: LS
+    #   run: ls -al
+    # - name: Set up Node.js
+    #   uses: actions/setup-node@v4.0.4
+    # - name: Node version
+    #   run: node --version
 
-      # - name: Run script
-      #   run: |
-      #     chmod +x script.sh
-      #     ./script.sh
+    # - name: Run script
+    #   run: |
+    #     chmod +x script.sh
+    #     ./script.sh
 
   # hola:
   #   runs-on: ubuntu-latest
